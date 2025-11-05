@@ -57,6 +57,15 @@
 
 
 
+
+tariff_table
+--------------------------------
+usage_type (취사용/주택난방/산업용/열병합1_동절기 …)
+season (동절기/하절기/기타)
+unit_price (원/m3)
+base_fee
+caloric_correction_factor (보정계수)
+
 ===
 
 
