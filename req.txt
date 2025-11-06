@@ -1,12 +1,12 @@
-| column            | 설명                                             |
-| ----------------- | ----------------------------------------------- |
-| customer_id       | Cxxxxxx 랜덤                                     |
-| region            | 4개 지역                                          |
-| household_type    | 아파트/단독/상가                                    |
+| column            | 설명                                              |
+| ----------------- | -----------------------------------------------  |
+| contract_number   | **사용계약번호 (10자리 숫자 random)**                 |
+| region            | 4개 지역 (강남/서초/송파/강동)                         |
+| household_type    | 아파트/단독/상가                                     |
 | usage_type        | 주택난방/취사용/업무난방                               |
-| year_month        | 2024-11 같은 월                                   |
-| prev_meter        | 전월지침                                           |
-| curr_meter        | 당월지침                                           |
+| year_month        | 2024-11 같은 월                                    |
+| prev_meter        | 전월지침                                            |
+| curr_meter        | 당월지침                                            |
 | usage_m3          | curr-prev                                        |
 | correction_factor | 보정계수(0.98~1.05)                                |
 | billed_m3         | usage_m3 * correction_factor                     |
@@ -20,6 +20,7 @@
 | total_amount      | base_fee + variable_fee + tax - discount_amount  |
 | autopay           | Y/N                                              |
 | late_cnt          | 0~3                                              |
+
 
 
 ===
