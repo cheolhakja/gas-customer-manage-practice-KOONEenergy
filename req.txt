@@ -1,70 +1,26 @@
-| 컬럼             | 설명            | 예시              |
-| -------------- | ------------- | --------------- |
-| customer_id    | 고객 ID         | C000123         |
-| region         | 지역코드(도시/구 단위) | 마포구, 강남구        |
-| household_type | 주거형태          | 아파트 / 단독 / 상가   |
-| family_size    | 세대인원          | 1~5             |
-| has_children   | 다자녀 여부        | Y/N             |
-| discount_type  | 요금경감제도        | 없음 / 다자녀 / 저소득층 |
-| autopay        | 자동이체 여부       | Y/N             |
+| column            | 설명                                             |
+| ----------------- | ----------------------------------------------- |
+| customer_id       | Cxxxxxx 랜덤                                     |
+| region            | 4개 지역                                          |
+| household_type    | 아파트/단독/상가                                    |
+| usage_type        | 주택난방/취사용/업무난방                               |
+| year_month        | 2024-11 같은 월                                   |
+| prev_meter        | 전월지침                                           |
+| curr_meter        | 당월지침                                           |
+| usage_m3          | curr-prev                                        |
+| correction_factor | 보정계수(0.98~1.05)                                |
+| billed_m3         | usage_m3 * correction_factor                     |
+| avg_heat          | 평균열량(38~42) MJ/m3                              |
+| used_MJ           | billed_m3 * avg_heat                             |
+| base_fee          | 용도별 기본요금                                      |
+| unit_price        | 용도별 단가                                         |
+| variable_fee      | billed_m3 * unit_price                           |
+| discount_amount   | 0 또는 random 1000~20000                          |
+| tax               | variable_fee * 0.1                               |
+| total_amount      | base_fee + variable_fee + tax - discount_amount  |
+| autopay           | Y/N                                              |
+| late_cnt          | 0~3                                              |
 
-
-
-| 컬럼              | 설명        | 예시         |
-| --------------- | --------- | ---------- |
-| customer_id     | 고객ID      | C000123    |
-| year_month      | ‘YYYY-MM’ | 2025-10    |
-| usage_m3        | 사용량(m³)   | 85.3       |
-| temperature     | 평균기온(°C)  | 8.2        |
-| meter_read_date | 검침일       | 2025-10-28 |
-
-
-
-| 컬럼           | 설명      | 예시         |
-| ------------ | ------- | ---------- |
-| bill_id      | 고유청구ID  | B000123    |
-| customer_id  | 고객ID    | C000123    |
-| year_month   | 청구월     | 2025-10    |
-| usage_m3     | 사용량(m³) | 85.3       |
-| base_fee     | 기본요금    | 760        |
-| variable_fee | 단가요금    | 56000      |
-| tax          | 부가세     | 5600       |
-| total_amount | 총요금     | 62360      |
-| due_date     | 납기일     | 2025-11-10 |
-| paid_date    | 납부일     | 2025-11-07 |
-| is_paid      | 납부여부    | Y/N        |
-
-
-
-| 컬럼                | 설명   | 예시                              |
-| ----------------- | ---- | ------------------------------- |
-| request_id        | 신청ID | S000123                         |
-| customer_id       | 고객ID | C000123                         |
-| request_type      | 유형   | 전입신청 / 전출신청 / 자동이체 해지 / 요금경감 신청 |
-| request_date      | 접수일  | 2025-10-05                      |
-| resolved_date     | 처리일  | 2025-10-07                      |
-| resolution_status | 상태   | 완료 / 지연 / 반려                    |
-
-
-
-| 컬럼               | 설명        | 예시      |
-| ---------------- | --------- | ------- |
-| customer_id      | 고객ID      | C000123 |
-| total_paid       | 연간 납부총액   | 670000  |
-| late_count       | 연체 횟수     | 2       |
-| discount_applied | 경감 혜택 횟수  | 3       |
-| autopay_status   | 자동이체 유지여부 | 유지 / 해지 |
-
-
-
-
-tariff_table
---------------------------------
-usage_type (취사용/주택난방/산업용/열병합1_동절기 …)
-season (동절기/하절기/기타)
-unit_price (원/m3)
-base_fee
-caloric_correction_factor (보정계수)
 
 ===
 
